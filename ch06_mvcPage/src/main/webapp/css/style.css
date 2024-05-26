@@ -1,0 +1,688 @@
+@charset "UTF-8";
+
+/* 전체 레이아웃
+---------------------*/
+* {
+	font-family: "Noto Sans KR", sans-serif;
+	color: #333;
+}
+
+body {
+	width: 960px;
+	margin: 0 auto;
+	background: #E6E6E6;
+}
+
+a:link {
+	text-decoration: none;
+	color: #000000;
+}
+
+a:visited {
+	text-decoration: none;
+	color: #000000;
+}
+
+a:hover {
+	text-decoration: none;
+	color: #6C6C6C;
+}
+/* 페이지 레이아웃
+---------------------*/
+.page-main {
+	background: #FFFFFF;
+	margin: 40px 0;
+	border-radius: 5px;
+	box-shadow: 0 2px 6px rgba(100, 100, 100, 0.3);
+	min-height: 650px;
+}
+
+.content-main {
+	padding: 10px 20px;
+}
+/* 공통 메시지
+---------------------*/
+.result-display {
+	width: 400px;
+	height: 200px;
+	margin: 50px auto;
+	border: 1px solid #000;
+	display: flex;
+	align-items: center; /*세로 정렬*/
+	justify-content: center; /*가로 정렬*/
+}
+/* 공통 정렬
+---------------------*/
+.align-center {
+	text-align: center;
+}
+
+.align-right {
+	text-align: right;
+}
+/* 메뉴
+---------------------*/
+#main_logo {
+	padding-top: 20px;
+}
+
+#main_nav {
+	padding: 2px 10px 20px 10px;
+	height: 20px;
+	background-color: #C1BFBF;
+}
+
+#main_nav ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+#main_nav ul li {
+	display: inline-block;
+	width: 100px;
+	text-align: center;
+	vertical-align: middle;
+	padding-top: 8px;
+}
+
+#main_nav ul li.menu-profile {
+	padding-top: 5px;
+	width: 25px;
+}
+
+#main_nav ul li img.my-photo {
+	vertical-align: middle;
+}
+
+#main_nav ul li.menu-logout {
+	width: 150px;
+	text-align: left;
+}
+
+/* 공통 등록, 수정 폼
+---------------------*/
+form {
+	width: 600px;
+	margin: 0 auto;
+	border: 1px solid #000;
+	padding: 10px 10px 10px 30px;
+}
+
+form ul li {
+	clear: both;
+}
+
+form ul li label {
+	width: 130px;
+	float: left; /*태그를 왼쪽으로 정렬*/
+}
+
+ul {
+	list-style: none;
+}
+
+input {
+	margin-top: 4px;
+}
+
+#register_form input[type="text"], #register_form input[type="password"],
+	#register_form input[type="email"] {
+	width: 310px;
+	/* 개인적으로 추가한 CSS 부분 */
+	padding: 8px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	box-sizing: border-box;
+}
+
+#register_form input[id="id"] {
+	width: 223px;
+}
+
+#register_form input[id="zipcode"] {
+	width: 205px;
+}
+
+input[type="number"] {
+	width: 100px;
+}
+
+.form-notice {
+	margin-left: 130px;
+}
+/* 로그인
+---------------------*/
+#login_form {
+	width: 300px;
+	margin: 0 auto;
+	padding: 0;
+	border: none;
+}
+
+#login_form ul {
+	padding: 0;
+}
+
+.floating-label { /*floating label 설정*/
+	position: relative;
+}
+
+.floating-label>.form-input {
+	width: 300px;
+	height: 32px;
+	padding: 0.55rem 0.55rem;
+	border: 1px solid #ccc;
+	border-radius: 10px;
+}
+
+.floating-label>label {
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 1.05rem 0.75rem;
+	transition: all 0.25s;
+}
+
+.floating-label>.form-input::placeholder {
+	color: transparent;
+}
+
+.floating-label>.form-input:focus, .floating-label>.form-input:not(:placeholder-shown)
+	{
+	padding-top: 1.125rem;
+	padding-bottom: 0.125rem;
+}
+
+.floating-label>.form-input:focus+label, .floating-label>.form-input:not(:placeholder-shown)+label
+	{
+	opacity: 0.65;
+	transform: scale(0.85) translateY(-0.5rem) translateX(-0.5rem);
+}
+
+/* 마이페이지
+---------------------*/
+.mypage-div {
+	width: 48%;
+	float: left;
+	padding: 5px;
+}
+
+.mypage-end {
+	clear: both;
+}
+
+.my-photo {
+	/* 원 형태, 사진 중앙 정렬 */
+	object-fit: cover;
+	/* 정사각형이 아니라 직사각형일 경우 원 안에 보여지게 할 중심 이미지의 위치를 지정 */
+	object-position: top;
+	/* 사각형의 모서리 둥근 정도를 지정하는 속성, 50%를 지정하면 완전한 원 */
+	border-radius: 50%;
+}
+
+/* 
+---------------------*/
+form#search_form {
+	width: 100%;
+	margin: 20px 0;
+	border: none;
+}
+
+ul.search {
+	list-style: none;
+	padding: 0;
+	margin: 0 auto;
+	text-align: center;
+}
+
+ul.search li {
+	margin: 0 5px;
+	padding: 0;
+	display: inline;
+}
+
+ul.search li select, ul.search li input[type="search"], ul.search li input[type="submit"]
+	{
+	padding: 8px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	box-sizing: border-box;
+}
+
+ul.search li select {
+	width: 120px;
+}
+
+ul.search li input[type="search"] {
+	width: 250px;
+}
+
+ul.search li input[type="submit"] {
+	background-color: #007bff;
+	color: white;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+}
+
+ul.search li input[type="submit"]:hover {
+	background-color: #0056b3;
+}
+
+table {
+	width: 100%;
+	border: 1px solid #000;
+	border-collapse: collapse;
+	margin-top: 5px;
+}
+
+table td, table th {
+	border: 1px solid #000;
+	padding: 5px;
+}
+
+/* 게시판 글 상세
+---------------------*/
+ul.detail-info li {
+	display: inline-block;
+}
+
+.detail-img {
+	max-width: 500px;
+}
+
+ul.detial-sub {
+	margin: 0;
+	padding: 0;
+}
+
+ul.detail-sub li {
+	display: inline-block;
+	width: 49%;
+	height: 50px;
+	vertical-align: middle;
+}
+
+ul.detail-sub li:first-child img {
+	vertical-align: middle;
+}
+
+ul.detail-sub li:last-child {
+	text-align: right;
+	line-height: 250%;
+}
+#output_fav{
+	cursor: pointer;
+}
+
+div#reply_div{
+	padding: 5px 10px 40px 10px;
+	margin-top: 10px;
+	background-color: #eee; 
+}
+
+form#re_form{
+	width: 650px;
+	border: none;
+}
+span.re-title{
+	color: #000;
+	font-size: 12pt;
+	line-height: 200%;
+}
+span.letter-count{
+	font-size: 10pt;
+	color: #999;
+}
+textarea.rep-content{
+	width: 90%;
+	height: 50px;
+	margin: 10px;
+}
+div#re_first, div#mre_first{
+	float: left;
+	width: 70%;
+	padding-left: 15px;
+	margin-bottom: 10px;
+}
+div#re_second, div#mre_second{
+	float: left;
+	width: 19%;
+	margin-bottom: 10px;
+}
+div#loading{
+	text-align:center;
+}
+div.paging-button{
+	text-align:right;
+}
+div#output{
+	clear: both;
+	
+}
+form#mre_form{
+	border: none;
+	margin: 5px;
+}
+/* 게시판 글 수정
+---------------------*/
+#file_detail{
+	margin: 5px 0 0 130px;
+}
+#file_detail input[type="button"] {
+	background-color: white;
+	color: black;
+	border: 1px solid;
+	padding: 5px 10px;
+	border-radius: 20px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+	margin-left: 10px;
+	width: 75px;
+}
+
+#file_detail input[type="button"]:hover {
+	color: white;
+}
+
+#file_detail input[value="파일 삭제"] {
+	border-color: #ff0000;
+}
+
+#file_detail input[value="파일 삭제"]:hover {
+	background-color: #ff0000;
+}
+
+/* 개인 변경
+---------------------*/
+#modify_form input[type="text"], #modify_form input[type="password"],
+	#modify_form input[type="email"] {
+	width: 310px;
+	padding: 8px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	box-sizing: border-box;
+}
+
+#modify_form input[id="id"] {
+	width: 223px;
+}
+
+#modify_form input[id="zipcode"] {
+	width: 205px;
+}
+
+#modify_form ul li label {
+	margin-top: 10px;
+}
+
+#modify_form input[type="submit"] {
+	background-color: white;
+	color: black;
+	border: 1px solid #007bff;
+	padding: 5px;
+	border-radius: 20px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+	width: 65px;
+}
+
+#modify_form input[type="submit"]:hover {
+	background-color: #007bff;
+	color: white;
+}
+
+input[type="submit"] {
+	background-color: white;
+	color: black;
+	border: 1px solid #007bff;
+	padding: 5px;
+	border-radius: 20px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+	width: 100px;
+}
+
+input[type="button"] {
+	background-color: white;
+	color: black;
+	border: 1px solid #6c757d;
+	padding: 5px;
+	border-radius: 20px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+	width: 100px;
+}
+
+input[type="submit"]:hover {
+	background-color: #007bff;
+	color: white;
+}
+
+input[type="button"]:hover {
+	background-color: #6c757d;
+	color: white;
+}
+
+/* 수정 관련 버튼 */
+input[id="photo_submit"] {
+	background-color: white;
+	color: black;
+	border: 1px solid #28a745;
+	padding: 3px;
+	border-radius: 20px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+	width: 65px;
+}
+
+input[id="photo_submit"]:hover {
+	background-color: #28a745;
+	color: white;
+}
+
+input[id="photo_reset"], input[id="delete_btn"] {
+	background-color: white;
+	color: black;
+	border: 1px solid #ff0000;
+	padding: 3px;
+	border-radius: 20px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+	width: 65px;
+}
+
+input[id="photo_reset"]:hover, input[id="delete_btn"]:hover {
+	background-color: #ff0000;
+	color: white;
+}
+
+input[id="tel_btn"], input[id="photo_btn"], input[id="passwd_btn"],
+	input[type=file]::file-selector-button {
+	background-color: white;
+	color: black;
+	border: 1px solid #007bff;
+	padding: 3px;
+	border-radius: 20px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+	width: 90px;
+}
+
+input[id="tel_btn"]:hover, input[id="photo_btn"]:hover, input[id="passwd_btn"]:hover,
+	input[type=file]::file-selector-button:hover {
+	background-color: #007bff;
+	color: white;
+}
+
+#password_form input[type="text"], #password_form input[type="password"]
+	{
+	width: 310px;
+	padding: 8px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	box-sizing: border-box;
+}
+
+#password_form ul li label {
+	margin-top: 10px;
+}
+
+#password_form input[type="submit"] {
+	background-color: white;
+	color: black;
+	border: 1px solid #007bff;
+	padding: 5px;
+	border-radius: 20px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+	width: 75px;
+}
+
+#password_form input[type="button"] {
+	background-color: white;
+	color: black;
+	border: 1px solid #6c757d;
+	padding: 5px;
+	border-radius: 20px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+	width: 75px;
+}
+
+#password_form input[type="submit"]:hover {
+	background-color: #007bff;
+	color: white;
+}
+
+#password_form input[type="button"]:hover {
+	background-color: #6c757d;
+	color: white;
+}
+
+#delete_form input[type="text"], #delete_form input[type="password"],
+	#delete_form input[type="email"] {
+	width: 310px;
+	padding: 8px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	box-sizing: border-box;
+}
+
+#delete_form ul li label {
+	margin-top: 10px;
+}
+
+input[id="list_btn"], input[id="list_home_btn"] {
+	background-color: white;
+	color: black;
+	border: 1px solid #6c757d;
+	padding: 5px;
+	border-radius: 20px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+	width: 55px;
+}
+
+input[id="list_btn"]:hover, input[id="list_home_btn"]:hover {
+	background-color: #6c757d;
+	color: white;
+}
+
+input[id="write_btn"] {
+	background-color: white;
+	color: black;
+	border: 1px solid #6c757d;
+	padding: 5px;
+	border-radius: 20px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+	width: 70px;
+}
+
+input[id="write_btn"]:disabled {
+	background-color: #ced4da;
+	color: #6c757d;
+	border-color: #ced4da;
+	cursor: not-allowed;
+}
+
+input[id="title"], textarea {
+	width: 60%;
+	padding: 8px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	box-sizing: border-box;
+	margin-bottom: 10px;
+}
+
+.info {
+	font-size: 14px;
+	color: #666;
+}
+
+#detail_btn {
+	text-align: right;
+	margin-top: 10px;
+	font-size: 14px;
+	color: #666;
+}
+
+#detail_btn input[type="button"] {
+	background-color: white;
+	color: black;
+	border: 1px solid;
+	padding: 5px 10px;
+	border-radius: 20px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+	margin-left: 10px;
+	width: 65px;
+}
+
+#detail_btn input[type="button"]:hover {
+	color: white;
+}
+
+#detail_btn input[value="수정"] {
+	border-color: #007bff;
+}
+
+#detail_btn input[value="수정"]:hover {
+	background-color: #007bff;
+}
+
+#detail_btn input[value="삭제"] {
+	border-color: #ff0000;
+}
+
+#detail_btn input[value="삭제"]:hover {
+	background-color: #ff0000;
+}
+
+#detail_btn input[value="목록"] {
+	border-color: #333;
+}
+
+#detail_btn input[value="목록"]:hover {
+	background-color: #333;
+	color: white;
+}
+
+input[value="수정"] {
+	border-color: #007bff;
+}
+
+input[value="수정"]:hover {
+	background-color: #007bff;
+}
+
+input[value="삭제"] {
+	border-color: #ff0000;
+}
+
+input[value="삭제"]:hover {
+	background-color: #ff0000;
+}
+
+/* --------------------------------------------------- */
