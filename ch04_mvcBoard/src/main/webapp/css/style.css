@@ -1,0 +1,139 @@
+@charset "UTF-8";
+
+body{
+    padding: 0;
+    margin: 0;
+    font-family: "Noto Sans KR", sans-serif;
+}
+.page-main{
+    width: 800px;
+    margin: 0 auto; /* 중앙 정렬 */
+}
+.result-display{
+    width:  400px;
+    height: 200px;
+    margin: 50px auto;
+    border: 1px solid #000;
+    display: flex;
+    align-items: center; /* 세로 정렬 */
+    justify-content: center; /* 가로 정렬 */
+}
+.align-center{
+    text-align: center;
+}
+.align-right{
+    text-align: right;
+}
+
+/* 목록 */
+table{
+    width: 100%;
+    border: 1px solid #000;
+    border-collapse: collapse;
+    margin-top: 5px;
+}
+table td, table th{
+    border: 1px solid #000;
+    padding: 5px;
+}
+/* 등록, 수정폼 */
+form{
+    width: 500px;
+    margin: 0 auto;
+    border: 1px solid #000;
+    padding: 10px 10px 10px 30px;
+}
+ul{
+    list-style: none;
+    padding: 0; /* 리스트의 기본 padding 제거 */
+}
+li {
+    margin-bottom: 10px; /* 각 항목 사이의 간격 조정 */
+}
+label{
+    width: 100px;
+    float: left; /* 태그를 왼쪽으로 정렬 */
+}
+
+#list > .align-right > input[type="button"]{
+	font-family: "Noto Sans KR", sans-serif;
+	border: 2px solid black;
+	border-radius: 20px;
+	cursor : pointer;
+	width: 10%;
+	background-color: white;
+	padding: 7px;
+	font-weight: bold;
+	color: black;
+}
+#list > .align-right > input[type="button"]:hover{
+	color: white;
+	background-color: black;
+	font-weight: bold;
+}
+
+input[type="submit"],input[type="button"] {
+    background-color: white;
+    color: black;
+    border: 1px solid #007bff; 
+    padding: 7px; 
+    border-radius: 20px; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
+    width: 15%;
+}
+input[type="submit"]:hover, input[type="button"]:hover {
+    background-color: #007bff;
+    color:white;
+}
+input[type="text"],input[type="password"],input[type="email"],textarea {
+    width: 60%; 
+    padding: 8px; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    box-sizing: border-box; 
+}
+form {
+    margin-top: 20px;
+}
+button{
+	background-color: white;
+    color: black;
+    border: 1px solid #007bff; 
+    padding: 7px; 
+    border-radius: 20px; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
+    width: 50%;
+}
+button:hover {
+    background-color: #007bff;
+    color:white;
+}
+a {
+	text-decoration: none;
+	color: #c2c3c4;
+}
+a:hover {
+	color: black;
+}
+
+#detail_btn > input[type="button"] {
+    background-color: white;
+    color: black;
+    border: 1px solid #007bff; 
+    padding: 7px; 
+    border-radius: 20px; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
+    width: 10%;
+}
+
+#detail_btn > input[type="button"]:hover {
+    background-color: #007bff;
+    color:white;
+}
+
+#detail_page > li {
+    margin-bottom: 5px; /* 각 항목 사이의 간격 조정 */
+}
