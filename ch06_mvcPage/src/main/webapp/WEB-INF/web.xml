@@ -6,7 +6,7 @@
   	<servlet-class>kr.controller.DispatcherServlet</servlet-class>
   	<init-param>
   		<param-name>propertiesPath</param-name>
-  		<param-value>/WEB-INF/Member.properties,/WEB-INF/Board.properties,/WEB-INF/Shop.properties</param-value>
+  		<param-value>/WEB-INF/Member.properties,/WEB-INF/Board.properties</param-value>
   	</init-param>
   	<multipart-config>
   		<max-file-size>5242880</max-file-size>	<!-- 5M -->
