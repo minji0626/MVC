@@ -5,12 +5,12 @@ import java.sql.Date;
 import kr.item.vo.ItemVO;
 
 public class CartVO {
-	private int cart_num;
-	private int item_num;
-	private int order_quantity;
-	private Date reg_Date;
-	private int mem_num;			// 상품 구매자 회원 번호
-	private int sub_total;			// 동일 상품의 총 구매 금액
+	private int cart_num;		//장바구니번호
+	private int item_num;		//상품번호
+	private int order_quantity;	//주문수량
+	private Date reg_date;		//등록일
+	private int mem_num;		//상품 구매자 회원번호
+	private int sub_total;		//동일 상품의 총구매 금액	
 	
 	private ItemVO itemVO;
 
@@ -38,12 +38,12 @@ public class CartVO {
 		this.order_quantity = order_quantity;
 	}
 
-	public Date getReg_Date() {
-		return reg_Date;
+	public Date getReg_date() {
+		return reg_date;
 	}
 
-	public void setReg_Date(Date reg_Date) {
-		this.reg_Date = reg_Date;
+	public void setReg_date(Date reg_date) {
+		this.reg_date = reg_date;
 	}
 
 	public int getMem_num() {
@@ -69,6 +69,8 @@ public class CartVO {
 	public void setItemVO(ItemVO itemVO) {
 		this.itemVO = itemVO;
 	}
-	
-	
 }
+
+
+
+
