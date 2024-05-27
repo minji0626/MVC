@@ -13,8 +13,7 @@ public class UserDetailAction implements Action{
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// 상품번호 반환
-		int item_num = Integer.parseInt(
-				       request.getParameter("item_num"));
+		int item_num = Integer.parseInt(request.getParameter("item_num"));
 		ItemDAO dao = ItemDAO.getInstance();
 		ItemVO item = dao.getItem(item_num);
 		
