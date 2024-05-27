@@ -81,8 +81,19 @@ status number(1) not null,		-- 표시 여부 (판매 가능 여부) 1: 미표시
 constraint zitem_pk primary key (item_num)
 );
 
-create sequence zimte_seq;
+create sequence zitem_seq;
 
 
+-- 장바구니
+create table zcart(
+cart_num number,
+item_num number not null,
+order_quantity number(7) not null,
+reg_date date default sysdate not null,
+mem_num number not null,		-- 상품 구매자 회원 번호
+constraint zcart_pk primary key (cart_num),
+constraint zcart_fk1 foreign key (item_num) references zitem (item_num),
+constraint zcart_fk2 foreign key (mem_num) references zmember (mem_num),
+);
 
-
+create sequence zcart_seq;

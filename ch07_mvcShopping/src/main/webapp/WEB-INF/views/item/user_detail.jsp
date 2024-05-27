@@ -32,9 +32,9 @@
 		</div>
 		<div class="item-detail">
 			<form id="item_cart">
-				<input type="hidden" name="item_name" value="${item.item_num}">
-				<input type="hidden" name="item_price" value="${item.price}">
-				<input type="hidden" name="item_quantity" value="${item.quantity}">
+				<input type="hidden" id="item_name" name="item_name" value="${item.item_num}">
+				<input type="hidden" id="item_price" name="item_price" value="${item.price}">
+				<input type="hidden" id="item_quantity" name="item_quantity" value="${item.quantity}">
 				<ul> 
 					<li>가격 : <b><fmt:formatNumber value="${item.price}" /></b></li>
 					<li>재고 : <span><fmt:formatNumber value="${item.quantity}" /></span></li>
