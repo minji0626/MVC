@@ -102,24 +102,92 @@ a:hover {
 
 /* 메인
 ---------------------*/
-.image-space .horizontal-area{
-	margin:2px;
-	padding:3px;
-	width:220px;
-	height:240px;
-	float:left;
+.image-space .horizontal-area {
+	margin: 2px;
+	padding: 3px;
+	width: 220px;
+	height: 240px;
+	float: left;
 	overflow: hidden;
 	text-align: center;
 }
 
-.image-space .horizontal-area img{
+.image-space .horizontal-area img {
 	width: 215px;
 	height: 195px;
 }
 
-.image-space .float-clear{
-	
+.image-space .float-clear {
+	clear: both;
 }
+
+/* 상품
+---------------------*/
+.item-space .horizontal-area {
+	margin: 2px;
+	padding: 3px;
+	width: 200px;
+	height: 220px;
+	float: left;
+	overflow: hidden;
+	text-align: center;
+}
+
+.item-space .horizontal-area img {
+	width: 195px;
+	height: 175px;
+}
+
+.item-space .horizontal-area span {
+	padding: 5px;
+	margin: 5px
+}
+
+.item-space .float-clear {
+	clear: both;
+}
+
+label[for="order_quantity"] {
+	width: 80px;
+}
+
+.item-image {
+	width: 400px;
+	margin: 0 0 10px 0;
+	float: left;
+}
+
+.item-image li {
+	padding: 0 0 5px 0;
+}
+
+.item-detail form {
+	border: none;
+	width: 470px;
+	margin: 0;
+	float: left;
+}
+
+#item_total_txt {
+	color: #000;
+	font-weight: bold;
+}
+
+input[type="number"].quantity-width {
+	width: 40px;
+	margin-bottom: 3px;
+}
+
+.sold-out {
+	color: red;
+}
+
+/* 장바구니
+---------------------*/
+form[id="cart_order"] {
+	border: none;
+}
+
 /* 공통 등록, 수정 폼
 ---------------------*/
 form {
@@ -331,64 +399,74 @@ ul.detail-sub li:last-child {
 	text-align: right;
 	line-height: 250%;
 }
-#output_fav{
+
+#output_fav {
 	cursor: pointer;
 }
 
-div#reply_div{
+div#reply_div {
 	padding: 5px 10px 40px 10px;
 	margin-top: 10px;
-	background-color: #eee; 
+	background-color: #eee;
 }
 
-form#re_form{
+form#re_form {
 	width: 650px;
 	border: none;
 }
-span.re-title{
+
+span.re-title {
 	color: #000;
 	font-size: 12pt;
 	line-height: 200%;
 }
-span.letter-count{
+
+span.letter-count {
 	font-size: 10pt;
 	color: #999;
 }
-textarea.rep-content{
+
+textarea.rep-content {
 	width: 90%;
 	height: 50px;
 	margin: 10px;
 }
-div#re_first, div#mre_first{
+
+div#re_first, div#mre_first {
 	float: left;
 	width: 70%;
 	padding-left: 15px;
 	margin-bottom: 10px;
 }
-div#re_second, div#mre_second{
+
+div#re_second, div#mre_second {
 	float: left;
 	width: 19%;
 	margin-bottom: 10px;
 }
-div#loading{
-	text-align:center;
+
+div#loading {
+	text-align: center;
 }
-div.paging-button{
-	text-align:right;
+
+div.paging-button {
+	text-align: right;
 }
-div#output{
+
+div#output {
 	clear: both;
-	
 }
-form#mre_form{
+
+form#mre_form {
 	border: none;
 	margin: 5px;
 }
 /* 게시판 글 수정
 ---------------------*/
-#file_detail{
+#file_detail {
 	margin: 5px 0 0 130px;
 }
+
 #file_detail input[type="button"] {
 	background-color: white;
 	color: black;
