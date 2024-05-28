@@ -2,7 +2,7 @@ $(function(){
 	/* =========================
 	 * 주문수량 변경
 	 * ========================= */
-	$('#order_quantity').on('input',function(){
+	$('#order_quantity').on('keyup mouseup',function(){
 		if($('#order_quantity').val()==''){
 			$('#item_total_txt').text('총주문 금액 : 0원');
 			return;
