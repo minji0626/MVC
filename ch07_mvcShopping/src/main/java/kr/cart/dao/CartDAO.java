@@ -160,6 +160,25 @@ public class CartDAO {
 		return cartSaved;
 	}
 	//장바구니 수정 (개별 상품 수량 수정)
+	public void updateCart(CartVO cart) throws Exception{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		String sql = null;
+		try {
+			conn = DBUtil.getConnection();
+			sql="UPDATE zcart SET order_quantity=? WHERE cart_num=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, cart.getOrder_quantity());
+			pstmt.setInt(2, cart.getCart_num());
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			throw new Exception(e);
+		} finally {
+			DBUtil.executeClose(null, pstmt, conn);
+		}
+		
+	}
+	
 	//장바구니 수정 (상품번호와 회원번호별 수정)
 	public void updaetCartByItem_num(CartVO cart)
 	                                     throws Exception{
@@ -187,6 +206,23 @@ public class CartDAO {
 		}
 	}
 	//장바구니 삭제
+	public void deleteCart(int cart_num) throws Exception{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		String sql = null;
+		try {
+			conn = DBUtil.getConnection();
+			sql="DELETE FROM zcart WHERE cart_num=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, cart_num);
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			throw new Exception(e);
+		} finally {
+			DBUtil.executeClose(null, pstmt, conn);
+		}
+		
+	}
 }
 
 
