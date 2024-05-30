@@ -5,9 +5,10 @@ public class OrderDetailVO {
 	private int item_num;
 	private String item_name;
 	private int item_price;
-	private int item_total;				// 동일 상품의 총 주문 금액
+	private int item_total;		//동일 상품의 총주문금액
 	private int order_quantity;
 	private int order_num;
+	
 	public int getDetail_num() {
 		return detail_num;
 	}
@@ -50,6 +51,4 @@ public class OrderDetailVO {
 	public void setOrder_num(int order_num) {
 		this.order_num = order_num;
 	}
-	
-	
 }

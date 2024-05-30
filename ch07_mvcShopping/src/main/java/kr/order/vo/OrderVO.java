@@ -4,9 +4,9 @@ import java.sql.Date;
 
 public class OrderVO {
 	private int order_num;
-	private int order_total;			// 총 구매 금액
-	private int payment;				// 지불 방법
-	private int status;					// 배송 상태
+	private int order_total;	//총구매금액
+	private int payment;		//지불방식
+	private int status;			//배송상태
 	private String receive_name;
 	private String receive_post;
 	private String receive_address1;
@@ -17,9 +17,9 @@ public class OrderVO {
 	private Date modify_date;
 	private int mem_num;
 	
-	// 상품 세부에 있는 정보를 가져와서 보여주기
 	private String id;
-	private String item_name;
+	private String item_name;		//상품명
+	
 	public int getOrder_num() {
 		return order_num;
 	}
@@ -110,5 +110,10 @@ public class OrderVO {
 	public void setItem_name(String item_name) {
 		this.item_name = item_name;
 	}
-	
 }
+
+
+
+
+
+

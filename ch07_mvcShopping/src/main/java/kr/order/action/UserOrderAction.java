@@ -1,5 +1,6 @@
 package kr.order.action;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -11,8 +12,11 @@ import kr.cart.vo.CartVO;
 import kr.controller.Action;
 import kr.item.dao.ItemDAO;
 import kr.item.vo.ItemVO;
+import kr.order.dao.OrderDAO;
+import kr.order.vo.OrderDetailVO;
+import kr.order.vo.OrderVO;
 
-public class UserOrderFormAction implements Action{
+public class UserOrderAction implements Action{
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -28,6 +32,9 @@ public class UserOrderFormAction implements Action{
 			return "/WEB-INF/views/common/notice.jsp";
 		}
 		
+		//전송된 데이터 인코딩 타입 지정
+		request.setCharacterEncoding("utf-8");
+		
 		CartDAO dao = CartDAO.getInstance();
 		int all_total = dao.getTotalByMem_num(user_num);
 		if(all_total<=0) {
@@ -40,6 +47,10 @@ public class UserOrderFormAction implements Action{
 		
 		//장바구니에 담겨있는 상품 정보 호출
 		List<CartVO> cartList = dao.getListCart(user_num);
+		
+		//개별상품 정보 담기
+		List<OrderDetailVO> orderDetailList = 
+				           new ArrayList<OrderDetailVO>();
 		ItemDAO itemDAO = ItemDAO.getInstance();
 		for(CartVO cart : cartList) {
 			ItemVO item = itemDAO.getItem(cart.getItem_num());
@@ -59,13 +70,49 @@ public class UserOrderFormAction implements Action{
 						   request.getContextPath()+"/cart/list.do");
 				return "/WEB-INF/views/common/alert_view.jsp";
 			}
+			
+			//자바빈에 개별상품 정보 저장
+			OrderDetailVO orderDetail = new OrderDetailVO();
+			orderDetail.setItem_num(cart.getItem_num());
+			orderDetail.setItem_name(cart.getItemVO().getName());
+			orderDetail.setItem_price(cart.getItemVO().getPrice());
+			orderDetail.setOrder_quantity(cart.getOrder_quantity());
+			orderDetail.setItem_total(cart.getSub_total());
+			
+			orderDetailList.add(orderDetail);
 		}
 		
-		request.setAttribute("list", cartList);
-		request.setAttribute("all_total", all_total);
-	
-		return "/WEB-INF/views/order/user_orderForm.jsp";
+		//구매정보 담기
+		OrderVO order = new OrderVO();
+		order.setOrder_total(all_total);
+		order.setPayment(Integer.parseInt(
+				         request.getParameter("payment")));
+		order.setReceive_name(
+				request.getParameter("receive_name"));
+		order.setReceive_post(
+				request.getParameter("receive_post"));
+		order.setReceive_address1(
+				request.getParameter("receive_address1"));
+		order.setReceive_address2(
+				request.getParameter("receive_address2"));
+		order.setReceive_phone(
+				request.getParameter("receive_phone"));
+		order.setNotice(request.getParameter("notice"));
+		order.setMem_num(user_num);
+		
+		OrderDAO orderDAO = OrderDAO.getInstance();
+		orderDAO.insertOrder(order, orderDetailList);
+		
+		//Refresh 정보를 응답 헤더에 추가
+		String url = request.getContextPath()+"/main/main.do";
+		response.addHeader("Refresh", "2;url="+url);
+		request.setAttribute("result_title", "상품 주문 완료");
+		request.setAttribute("result_msg", "주문이 완료되었습니다.");
+		request.setAttribute("result_url", url);		
+		
+		return "/WEB-INF/views/common/result_view.jsp";
 	}
+
 }
 
 
