@@ -48,11 +48,12 @@ window.onload=function(){
 		</c:if>
 		<c:if test="${order.status == 1}">	   
 			<form action="orderModify.do" method="post" id="order_modify">
+				<input type="hidden" name="order_num" value="${order.order_num}">
 				<ul>
 					<li>
 						<label for="receive_name">받는 사람</label>
 						<input type="text" name="receive_name"
-						  value="${order.order_num}"
+						  value="${order.receive_name}"
 						  id="receive_name" maxlength="10">
 					</li>
 					<li>
