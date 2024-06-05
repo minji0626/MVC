@@ -159,6 +159,31 @@ $(function(){
 				</tr>
 			</c:forEach>
 		</table>
+		
+		<h3>상품구매목록 <input type="button" value="더보기" onclick="location.href='${pageContext.request.contextPath}/order/orderList.do'"></h3>
+			<table>
+				<tr>
+					<th>주문번호</th>
+					<th>상품명</th>
+					<th>주문날짜</th>
+					<th>배송상태</th>
+				</tr>
+				<c:forEach var="order" items="${orderList}">
+				<tr>
+					<td>${order.order_num}</td>
+					<td><a href="${pageContext.request.contextPath}/order/orderDetail.do?order_num=${order.order_num}">${order.item_name}</a></td>
+					<td>${order.reg_date}</td>
+					<td>
+						<c:if test="${order.status == 1}">배송대기</c:if>
+						<c:if test="${order.status == 2}">배송준비중</c:if>
+						<c:if test="${order.status == 3}">배송중</c:if>
+						<c:if test="${order.status == 4}">배송완료</c:if>
+						<c:if test="${order.status == 5}">주문취소</c:if>
+					</td>
+				</tr>
+				</c:forEach>
+			</table>
+		
 	</div>
 	
 	<div class="mypage-end">

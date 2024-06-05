@@ -6,17 +6,21 @@ import javax.servlet.http.HttpSession;
 
 import kr.controller.Action;
 
-public class LogoutAction implements Action {
+public class LogoutAction implements Action{
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		
 		HttpSession session = request.getSession();
-		
+		//로그아웃 처리
 		session.invalidate();
-		
-		// 메인으로 redirect
+		//메인으로 리다이렉트
 		return "redirect:/main/main.do";
 	}
-
 }
+
+
+
+
+
+
+

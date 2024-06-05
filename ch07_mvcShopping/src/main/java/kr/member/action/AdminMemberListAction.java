@@ -15,20 +15,20 @@ public class AdminMemberListAction implements Action{
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		
 		HttpSession session = request.getSession();
-		Integer user_num = (Integer)session.getAttribute("user_num");
-		
-		if(user_num == null) {// 로그인 미실시
+		Integer user_num = 
+				(Integer)session.getAttribute("user_num");
+		if(user_num == null) {//로그인이 되지 않은 경우
 			return "redirect:/member/loginForm.do";
 		}
-		Integer user_auth = (Integer)session.getAttribute("user_auth");
 		
-		if(user_auth != 9) {
+		Integer user_auth = 
+				(Integer)session.getAttribute("user_auth");
+		if(user_auth != 9) {//관리자로 로그인하지 않은 경우
 			return "/WEB-INF/views/common/notice.jsp";
 		}
 		
-		// 관리자로 로그인한 경우
+		//관리자로 로그인한 경우
 		String pageNum = request.getParameter("pageNum");
 		if(pageNum == null) pageNum = "1";
 		
@@ -36,21 +36,30 @@ public class AdminMemberListAction implements Action{
 		String keyword = request.getParameter("keyword");
 		
 		MemberDAO dao = MemberDAO.getInstance();
-		int count = dao.getMemberCountByAdmin(keyfield, keyword);
-		
-		// 페이지 처리
-		PagingUtil page = new PagingUtil(keyfield, keyword, Integer.parseInt(pageNum), count, 20,10,"adminList.do");
-		
+		int count = dao.getMemberCountByAdmin(
+				                      keyfield, keyword);
+		//페이지 처리
+		PagingUtil page = new PagingUtil(keyfield,keyword,
+				           Integer.parseInt(pageNum),
+				           count,20,10,"adminList.do");
 		List<MemberVO> list = null;
 		if(count > 0) {
-			list = dao.getListMemberByAdmin(page.getStartRow(), page.getEndRow(), keyfield, keyword);
+			list = dao.getListMemberByAdmin(
+					     page.getStartRow(),page.getEndRow(),
+					                    keyfield,keyword);
 		}
+		
 		request.setAttribute("count", count);
 		request.setAttribute("list", list);
 		request.setAttribute("page", page.getPage());
-		// JSP 경로 반환
+		//JSP 경로 반환
 		return "/WEB-INF/views/member/memberList.jsp";
-		
 	}
 
 }
+
+
+
+
+
+
