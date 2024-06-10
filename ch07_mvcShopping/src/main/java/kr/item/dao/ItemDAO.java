@@ -52,6 +52,42 @@ public class ItemDAO {
 	//관리자 - 상품 수정
 	//관리자 - 상품 삭제
 	//관리자/사용자 - 전체 상품 개수/검색 상품 개수
+	public int getItemCount(String keyfield,String keyword,
+			                 int status)throws Exception{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = null;
+		String sub_sql = "";
+		int count = 0;
+		try {
+			//커넥션풀로부터 커넥션 할당
+			conn = DBUtil.getConnection();
+			
+			if(keyword !=null && !"".equals(keyword)) {
+				if(keyfield.equals("1")) sub_sql += "AND name LIKE '%' || ? || '%'";
+				else if(keyfield.equals("2")) sub_sql += "AND detail LIKE '%' || ? || '%'";
+			}
+			
+			sql = "SELECT COUNT(*) FROM zitem WHERE status > ? " + sub_sql;
+			//PreparedStatement 객체 생성
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, status);
+			if(keyword!=null && !"".equals(keyword)) {
+				pstmt.setString(2, keyword);
+			}
+			
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				count = rs.getInt(1);
+			}			
+		}catch(Exception e) {
+			throw new Exception(e);
+		}finally {
+			DBUtil.executeClose(rs, pstmt, conn);
+		}		
+		return count;
+	}
 	//관리자/사용자 - 전체 상품 목록/검색 상품 목록
 	public List<ItemVO> getListItem(
 			     int start, int end, String keyfield,

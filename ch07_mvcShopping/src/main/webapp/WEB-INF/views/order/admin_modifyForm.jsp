@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>배송지정보 수정</title>
+<title>배송지정보 수정(관리자전용)</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" type="text/css">
 <c:if test="${order.status == 1}">
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.7.1.min.js"></script>
@@ -49,7 +49,7 @@ window.onload=function(){
 		</div>
 		</c:if>
 		<c:if test="${order.status == 1}">	   
-			<form action="orderModify.do" method="post" id="order_modify">
+			<form action="modify.do" method="post" id="order_modify">
 				<input type="hidden" name="order_num" value="${order.order_num}">
 				<ul>
 					<li>
@@ -94,8 +94,8 @@ window.onload=function(){
 					<input type="submit" value="수정">
 					<input type="button" value="주문목록"
 					       onclick="location.href='orderList.do'">
-					<input type="button" value="MY페이지"
-					   onclick="location.href='${pageContext.request.contextPath}/member/myPage.do'">
+					<input type="button" value="주문목록"
+					   onclick="location.href='adminList.do'">
 				</div>
 			</form>
 <!-- 다음 우편번호 API 시작 -->
