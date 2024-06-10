@@ -22,12 +22,13 @@ public class AdminDetailAction implements Action{
 			return "redirect:/member/loginForm.do";
 		}
 		
-		Integer user_auth = (Integer)session.getAttribute("user_auth");
-		if(user_auth != 9) {	// 관리자로 로그인하지 않은 경우
+		Integer user_auth = 
+				(Integer)session.getAttribute("user_auth");
+		if(user_auth != 9) {//관리자로 로그인하지 않은 경우
 			return "/WEB-INF/views/common/notice.jsp";
 		}
 		
-		// 관리자로 로그인 된 경우
+		//관리자로 로그인한 경우
 		int order_num = Integer.parseInt(
 				         request.getParameter("order_num"));
 		OrderDAO dao = OrderDAO.getInstance();
@@ -42,7 +43,11 @@ public class AdminDetailAction implements Action{
 		request.setAttribute("detailList", detailList);
 		
 		return "/WEB-INF/views/order/admin_detail.jsp";
-		
 	}
 
 }
+
+
+
+
+

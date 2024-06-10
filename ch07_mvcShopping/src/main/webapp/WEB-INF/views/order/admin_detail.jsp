@@ -6,14 +6,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>구매상세(관리자 전용)</title>
+<title>구매상세(관리자전용)</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" type="text/css">
 </head>
 <body>
 <div class="page-main">
 	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
 	<div class="content-main">
-		<h2>구매상세 - 관리자</h2>
+		<h2>구매상세(관리자전용)</h2>
 			<table>
 				<tr>
 					<th>상품명</th>
@@ -71,18 +71,18 @@
 				</li>
 				<li class="align-center">
 					<c:if test="${order.status == 1}">
-					<input type="button" value="배송지 정보 수정" 
+					<input type="button" value="배송지정보수정" 
 					   onclick="location.href='modifyForm.do?order_num=${order.order_num}'"> 
 					</c:if>
 					<c:if test="${order.status != 5}">
-					<input type="button" value="배송 상태 수정" 
+					<input type="button" value="배송상태수정" 
 					   onclick="location.href='modifyStatusForm.do?order_num=${order.order_num}'"> 
 					</c:if>
 					<c:if test="${order.status == 4 or order.status == 5}">
 					<input type="button" value="삭제" 
 					   onclick="location.href='deleteOrder.do?order_num=${order.order_num}'"> 
 					</c:if>
-					<input type="button" value="주문 목록" 
+					<input type="button" value="주문목록" 
 					   onclick="location.href='adminList.do'">
 				</li>
 			</ul>			
